@@ -12,7 +12,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./Signup.css"
 import { useDispatch } from 'react-redux';
 import { useForm } from '@mantine/form';
-import { signUp } from '../../helpers/helpers';
 import { uploadUser } from '../../redux/authentication';
 import { notifications } from '@mantine/notifications';
 
@@ -32,11 +31,12 @@ const Signup = () => {
 
     const form = useForm({
         initialValues: {
-            first_name: '',
-            last_name: '',
-            age: '',
+            firstname: '',
+            lastname: '',
             gender: '',
-            email: ''
+            email: '',
+            password: '',
+            telephone: ''
         },
     });
 
@@ -73,23 +73,32 @@ const Signup = () => {
                         value={form.values.email}
                         onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
                     />
+                    <TextInput
+                        name='password'
+                        label="Password"
+                        placeholder="************"
+                        size="sm"
+                        value={form.values.password}
+                        type='password'
+                        onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
+                    />
                     <div style={{ display: 'flex' }}>
                         <TextInput
                             label="First name"
-                            name='first_name'
+                            name='firstname'
                             placeholder="First name"
                             size="sm"
-                            value={form.values.first_name}
-                            onChange={(event) => form.setFieldValue('first_name', event.currentTarget.value)}
+                            value={form.values.firstname}
+                            onChange={(event) => form.setFieldValue('firstname', event.currentTarget.value)}
                         />
                         <TextInput
                             label="last Name"
-                            name='last_name'
+                            name='lastname'
                             placeholder="Last name"
                             size="sm"
                             style={{ marginLeft: 5 }}
-                            value={form.values.last_name}
-                            onChange={(event) => form.setFieldValue('last_name', event.currentTarget.value)}
+                            value={form.values.lastname}
+                            onChange={(event) => form.setFieldValue('lastname', event.currentTarget.value)}
                         />
                     </div>
                     <Select
@@ -105,12 +114,12 @@ const Signup = () => {
                         onChange={(event) => form.setFieldValue('gender', event)}
                     />
                     <TextInput
-                        label="Age"
-                        name='age'
-                        placeholder="Age"
+                        label="Telephone"
+                        name='telephone'
+                        placeholder="+38 xx xxx xx"
                         size="sm"
-                        value={form.values.age}
-                        onChange={(event) => form.setFieldValue('age', event.currentTarget.value)}
+                        value={form.values.telephone}
+                        onChange={(event) => form.setFieldValue('telephone', event.currentTarget.value)}
                     />
                     <Button fullWidth mt="xl" size="md" color='lime' type='submit' loading={loading}>
                         Signup

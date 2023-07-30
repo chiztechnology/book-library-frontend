@@ -1,9 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cars from './cars';
-import reservations from './rental';
+import books from './books';
 import authentication from './authentication';
 
-const rootReducer = { cars, reservations, authentication };
+const rootReducer = { books, authentication };
 
 const store = configureStore({
     reducer: rootReducer,

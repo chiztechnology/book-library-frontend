@@ -25,7 +25,8 @@ const Login = () => {
 
     const form = useForm({
         initialValues: {
-            email: ''
+            email: '',
+            password: ''
         },
 
         validate: {
@@ -45,9 +46,9 @@ const Login = () => {
                         navigate("/list-item");
                     }
                 } else {
-                    form.reset();
-                    setLoading(false)
-                    form.setFieldError('email')
+                    // form.reset();
+                    // setLoading(false)
+                    // form.setFieldError('email')
                 }
             }
         );
